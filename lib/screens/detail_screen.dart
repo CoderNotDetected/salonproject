@@ -185,9 +185,9 @@ class DetailScreen extends StatelessWidget {
                           children: <Widget>[
                             Positioned(
                               top: 10,
-                              right: -25,
+                              right: -0.9,
                               child: Image.asset(stylist['imgUrl'],
-                              scale: 1.6,
+                              scale: 5.3,
                               ),
                               ),
                           ],
