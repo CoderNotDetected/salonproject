@@ -45,14 +45,13 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Padding(padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10), 
-            child: Row(
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10), 
+              child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 IconButton(
-                  onPressed: (){
-                    //Navigator.pop(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                  }, 
+                  onPressed: (){}, 
                   icon: Icon(Icons.menu_rounded,
                   color: Colors.white,),
                   ),
