@@ -32,6 +32,24 @@ const stylistData = [
      'phoneNumber': '8837456947',
      'bgColor': Colors.red,  
   },
+    {
+     'stylistName': 'Lisa',
+     'salonName': 'Beauty Salon',
+     'rating': '4.9',
+     'rateAmount': '61',
+     'imgUrl': 'assets/styleS.png',
+     'phoneNumber': '8837456947',
+     'bgColor': Colors.orange,  
+  },
+    {
+     'stylistName': 'Dean',
+     'salonName': 'Asian Salon',
+     'rating': '4.9',
+     'rateAmount': '61',
+     'imgUrl': 'assets/styleB.png',
+     'phoneNumber': '8837456947',
+     'bgColor': Colors.yellow,  
+  },
 ];
 
 
@@ -41,71 +59,75 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff4E295B),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10), 
-              child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                IconButton(
-                  onPressed: (){}, 
-                  icon: Icon(Icons.menu_rounded,
-                  color: Colors.white,),
-                  ),
-            MaterialButton(
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-              },
-              color: Color(0xffFF8573),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
+      backgroundColor: Color.fromARGB(255, 241, 219, 250),
+      body:  Column(
+          children: [
+            Expanded(
+              flex: 3,
+              child: SizedBox(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10), 
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        IconButton(
+                          onPressed: (){}, 
+                          icon: const Icon(Icons.menu_rounded,
+                          color: Colors.white,),
+                          ),
+                MaterialButton(
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                      },
+                      color: Color(0xffFF8573),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: const Text( 
+                        'Log Out', 
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                        ),
+                ),
+                
+
+                      ],
+                ),
+                 SizedBox(height: 10,),
+                                  Text(
+                                    'Hair Salon', 
+                                    style: TextStyle(fontWeight: FontWeight.bold, 
+                                    fontSize: 24,
+                                  ),
+                                  ),
+                    ],
+                  ),    
+                ),
               ),
-              child: Text( 
-                'Log Out', 
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-                ),
-            ), 
-              ],
-            ),    
             ),
-          SizedBox(
-            height: 30,
-          ),
-          Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.vertical(
-                top: Radius.circular(50),
-              ),
+
+          Expanded(
+              flex:21,
+              child: SizedBox(
+                           child: ListView.builder(shrinkWrap: true,
+                                  itemCount: stylistData.length,
+                                    itemBuilder: (c,i){
+                                    return StylistCard(stylistData[i]);
+                                  }),
+                         ),
+                    
+                
+                 
+               
+              
             ),
-            child: Padding(padding: EdgeInsets.symmetric(horizontal: 30),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                SizedBox(height: 50,),
-                Text(
-                  'Hair Salon', 
-                  style: TextStyle(fontWeight: FontWeight.bold, 
-                  fontSize: 24,
-                ),
-                ),
-                StylistCard(stylistData[0]),
-                StylistCard(stylistData[1]),
-                StylistCard(stylistData[2]), 
-              ],
-            ),
-            ),
-          ),  
+           
           ],
         ),
-      ),
+    
     );
   }
 }
@@ -118,7 +140,7 @@ class StylistCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20),
+      margin: EdgeInsets.symmetric(vertical: 10),
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height / 4 -20,
       decoration: BoxDecoration(
@@ -179,7 +201,7 @@ class StylistCard extends StatelessWidget {
                 onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(stylist)));
                 },
-                color: Color(0xff4E295B),
+                color: Color.fromARGB(255, 133, 86, 150),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
