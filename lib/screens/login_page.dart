@@ -1,4 +1,5 @@
 import 'package:barberapp/screens/home_screen.dart';
+import 'package:barberapp/screens/sign_up.dart';
 import 'package:flutter/material.dart';
  
 
@@ -103,7 +104,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           Text('Does not have a account ?'),
           TextButton(
             onPressed: (){
-             
+             Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage()));
             },
             child: Text(
               'Sign Up',
