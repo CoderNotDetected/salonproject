@@ -30,8 +30,8 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/salonP.png'),
-            fit: BoxFit.cover,
+            image: AssetImage('assets/salonQ.png'),
+            fit: BoxFit.contain,
           ),
         ),
         child: Padding(

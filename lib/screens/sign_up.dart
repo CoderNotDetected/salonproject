@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:barberapp/screens/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 
 class SignupPage extends StatelessWidget {
@@ -11,15 +10,15 @@ class SignupPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.blue,
         title: const Text("Hair Salon",
         ),
       ),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/salonQ.png'),
-            fit: BoxFit.cover,
+            image: AssetImage('assets/salonP.png'),
+            fit: BoxFit.contain,
             ),),
         child: SafeArea(
           child: SingleChildScrollView(
@@ -39,6 +38,7 @@ class SignupPage extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
+                              color: Colors.blue,
                             ),
                             ),
                           SizedBox(
@@ -47,8 +47,9 @@ class SignupPage extends StatelessWidget {
                           Text(
                             "Create an Account, Its free",
                             style: TextStyle(
+                              fontWeight: FontWeight.bold,
                               fontSize: 15,
-                              color: Colors.grey[700],
+                              color: Colors.blue,
                             ),
                             ),
                             SizedBox(
