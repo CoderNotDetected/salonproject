@@ -9,9 +9,12 @@ class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.blue,
-        title: const Text("Hair Salon",
+        title: const Text(
+           "Hair Salon",
         ),
       ),
       body: Container(
