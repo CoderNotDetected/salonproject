@@ -12,6 +12,8 @@ class DetailScreen extends StatelessWidget {
   final stylist;
   DetailScreen(this.stylist);
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -279,10 +281,18 @@ class DetailScreen extends StatelessWidget {
   }
 }
 
-class ServiceTile extends StatelessWidget {
+class ServiceTile extends StatefulWidget {
  
  final service;
  ServiceTile(this.service);
+
+  @override
+  State<ServiceTile> createState() => _ServiceTileState();
+}
+
+class _ServiceTileState extends State<ServiceTile> {
+  bool buttonclick = false;
+  Color buttonclickcolor = Color(0xffFF8573);
 
   @override
   Widget build(BuildContext context) {
@@ -297,7 +307,7 @@ class ServiceTile extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width / 2 - 40,
                 child: Text(
-                  service['title'],
+                  widget.service['title'],
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
@@ -308,7 +318,7 @@ class ServiceTile extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                '${service['duration']} Min',
+                '${widget.service['duration']} Min',
                 style: TextStyle(
                   color: Colors.grey,
                 ),
@@ -316,20 +326,30 @@ class ServiceTile extends StatelessWidget {
             ],
           ),
           Text(
-            '\$${service['price']}',
+            '\$${widget.service['price']}',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
             ),
             ),
             MaterialButton(
-              onPressed: (){},
-              color: Color(0xffFF8573),
+              onPressed: (){
+                setState(() {
+                  buttonclick = true;
+                  buttonclickcolor = Colors.green;
+                });
+               
+                    
+             
+                
+                //Navigator.pop(context, MaterialPageRoute(builder: (context) => BookingScreen()));
+              },
+              color: buttonclickcolor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
-              child: Text( 
-                'Book', 
+              child: Text(buttonclick? 
+                'Booked':'Book', 
                 style: TextStyle(
                   color: Colors.white,
                 ),
