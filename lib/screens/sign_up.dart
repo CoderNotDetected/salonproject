@@ -63,7 +63,7 @@ class SignupPage extends StatelessWidget {
                           ),
                           child: Column(
                             children: [
-                              makeInput(label: "User Name / Email"),
+                              makeInput(label: "User Name /  Email"),
                               makeInput(label: "Password",obscureText: true),
                               makeInput(label: "Confirm Pasword",obscureText: true)
                             ],
