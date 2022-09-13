@@ -338,11 +338,6 @@ class _ServiceTileState extends State<ServiceTile> {
                   buttonclick = true;
                   buttonclickcolor = Colors.green;
                 });
-               
-                    
-             
-                
-                //Navigator.pop(context, MaterialPageRoute(builder: (context) => BookingScreen()));
               },
               color: buttonclickcolor,
               shape: RoundedRectangleBorder(
