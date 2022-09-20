@@ -1,8 +1,9 @@
-import 'dart:ui';
+
 
 import 'package:barberapp/screens/detail_screen.dart';
 import 'package:barberapp/screens/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 const stylistData = [
   {
@@ -38,7 +39,7 @@ const stylistData = [
      'rating': '4.9',
      'rateAmount': '61',
      'imgUrl': 'assets/styleS.png',
-     'phoneNumber': '8837456947',
+     'phoneNumber': '8837555214',
      'bgColor': Colors.orange,  
   },
     {
@@ -47,7 +48,7 @@ const stylistData = [
      'rating': '4.9',
      'rateAmount': '61',
      'imgUrl': 'assets/styleB.png',
-     'phoneNumber': '8837456947',
+     'phoneNumber': '8834581236',
      'bgColor': Colors.yellow,  
   },
 ];
@@ -69,40 +70,51 @@ class HomeScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10), 
                   child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        IconButton(
-                          onPressed: (){}, 
-                          icon: const Icon(Icons.menu_rounded,
-                          color: Colors.white,),
-                          ),
-                MaterialButton(
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                      },
-                      color: Color(0xffFF8573),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: const Text( 
-                        'Log Out', 
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                        ),
-                ),
+                      SizedBox(height: 20,),
+                //       Row(
+                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //       children: <Widget>[
+                // //         IconButton(
+                // //           onPressed: (){}, 
+                // //           icon: const Icon(Icons.menu_rounded,
+                // //           color: Colors.white,),
+                // //           ),
+                // // MaterialButton(
+                // //       onPressed: ()async{
+                // //         final prefs = await SharedPreferences.getInstance();
+                // //         prefs.setString("loginstatus", "notlogin");
+                // //         Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                // //       },
+                // //       color: Color.fromARGB(255, 241, 219, 250),
+                // //       shape: RoundedRectangleBorder(
+                // //         borderRadius: BorderRadius.circular(30),
+                // //       ),
+                // //       child: Icon(Icons.logout)
+                // // ),
                 
 
-                      ],
-                ),
+                //       ],
+                // ),
                  SizedBox(height: 10,),
-                                  Text(
-                                    'Hair Salon', 
-                                    style: TextStyle(fontWeight: FontWeight.bold, 
-                                    fontSize: 24,
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Hair Salon', 
+                                        style: TextStyle(fontWeight: FontWeight.bold, 
+                                        fontSize: 24,
+                                      ),
+                                      ),
+                                      InkWell(
+                                        onTap: ()async{
+                                            final prefs = await SharedPreferences.getInstance();
+                        prefs.setString("loginstatus", "notlogin");
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                                        },
+                                        child: Icon(Icons.logout))
+                                    ],
                                   ),
-                                  ),
+
                     ],
                   ),    
                 ),

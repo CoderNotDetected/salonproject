@@ -7,13 +7,19 @@ var serviceList = [
   {'title': 'Oil Treatment', 'duration': 30, 'price': 80},
 ];
 
-class DetailScreen extends StatelessWidget {
+class DetailScreen extends StatefulWidget {
   
   final stylist;
   DetailScreen(this.stylist);
 
+  @override
+  State<DetailScreen> createState() => _DetailScreenState();
+}
+
+class _DetailScreenState extends State<DetailScreen> {
 
 
+  bool isLiked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -179,7 +185,7 @@ class DetailScreen extends StatelessWidget {
                           width: MediaQuery.of(context).size.width / 3 - 20,
                           height: MediaQuery.of(context).size.height / 6 + 10,
                           decoration: BoxDecoration(
-                            color: stylist['bgColor'],
+                            color: widget.stylist['bgColor'],
                             borderRadius: BorderRadius.circular(10),
                           ),
                          child: Stack(
@@ -188,7 +194,7 @@ class DetailScreen extends StatelessWidget {
                             Positioned(
                               top: 10,
                               right: -0.9,
-                              child: Image.asset(stylist['imgUrl'],
+                              child: Image.asset(widget.stylist['imgUrl'],
                               scale: 5.3,
                               ),
                               ),
@@ -202,7 +208,7 @@ class DetailScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            stylist[
+                            widget.stylist[
                               'stylistName'],
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -213,7 +219,7 @@ class DetailScreen extends StatelessWidget {
                         height: 5,
                       ),
                       Text(
-                        stylist['salonName'],
+                        widget.stylist['salonName'],
                         style: TextStyle(
                           fontWeight: FontWeight.w300,
                           color: Colors.grey,
@@ -222,7 +228,7 @@ class DetailScreen extends StatelessWidget {
                       SizedBox(
                         height: 5,
                       ),
-                      Text(stylist[
+                      Text(widget.stylist[
                         'phoneNumber'],
                         style: TextStyle(fontWeight: FontWeight.w300,
                         color: Colors.grey,),
@@ -241,7 +247,7 @@ class DetailScreen extends StatelessWidget {
                         width: 5,  
                       ),
                       Text(
-                        stylist['rating'],
+                        widget.stylist['rating'],
                         style: TextStyle(
                           color: Color(0xffFF8573),
                         ),
@@ -250,7 +256,7 @@ class DetailScreen extends StatelessWidget {
                         width: 5,
                        ),
                         Text(
-                          '(${stylist['rateAmount']})',
+                          '(${widget.stylist['rateAmount']})',
                           style: TextStyle(
                             color: Colors.grey,
                           ),
@@ -267,11 +273,16 @@ class DetailScreen extends StatelessWidget {
                     right: 10,
                     top: MediaQuery.of(context).size.height / 3 - 50,
                     child: MaterialButton(
-                      onPressed: (){},
+                      onPressed: (){
+                       setState(() {
+                         isLiked = !isLiked;
+                        
+                       });
+                      },
                       padding: EdgeInsets.all(10),
                       shape: CircleBorder(),
                       color: Colors.white,
-                      child: Icon(Icons.favorite_border),
+                      child: Icon(Icons.favorite_border,color: isLiked ? Colors.red : Colors.grey,),
                       ),),    
             ],
           ),
