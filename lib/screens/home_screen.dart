@@ -3,6 +3,7 @@
 import 'package:barberapp/screens/detail_screen.dart';
 import 'package:barberapp/screens/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const stylistData = [
@@ -108,8 +109,10 @@ class HomeScreen extends StatelessWidget {
                                       InkWell(
                                         onTap: ()async{
                                             final prefs = await SharedPreferences.getInstance();
-                        prefs.setString("loginstatus", "notlogin");
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                                          prefs.setString("loginstatus", "notlogin");
+                                          final GoogleSignIn googleSignIn = GoogleSignIn();
+                                          googleSignIn.signOut();
+                                          Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
                                         },
                                         child: Icon(Icons.logout))
                                     ],

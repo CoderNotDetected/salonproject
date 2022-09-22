@@ -1,3 +1,4 @@
+import 'package:barberapp/screens/book_page.dart';
 import 'package:flutter/material.dart';
 
 var serviceList = [
@@ -348,7 +349,9 @@ class _ServiceTileState extends State<ServiceTile> {
                 setState(() {
                   buttonclick = true;
                   buttonclickcolor = Colors.green;
-                });
+                  });
+                  showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(2015, 8), lastDate: DateTime(2101));
+                  showTimePicker(context: context, initialTime: TimeOfDay.now());
               },
               color: buttonclickcolor,
               shape: RoundedRectangleBorder(
